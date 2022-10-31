@@ -26,8 +26,28 @@ namespace Excercise2
                 else
                     Console.WriteLine("\n array can have maximum 37 elements \n");
             }
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write("<"+(i + 1) + ">");
+                string s = Console.ReadLine();
+                Giveonaldo[i] = int.Parse(s);
+            }
         }
-        
+
+        void Swap(int x, int y)
+        {
+            int temp;
+            temp = Giveonaldo[x];
+            Giveonaldo[x] = Giveonaldo[y];
+            Giveonaldo[x] = temp;
+        }
+
+        public void QuickSort(int low, int high)
+        {
+            int pivot, i, j;
+            if (low > high)
+                return;
+        }
 
         static void Main(string[] args)
         {
