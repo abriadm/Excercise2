@@ -91,7 +91,7 @@ namespace Exercise2
         }
         void display()
         {
-            Console.WriteLine("\n -----------------------------");
+            Console.WriteLine("\n ---------------------------");
             Console.WriteLine("\n Sorted array elements");
             Console.WriteLine("\n -----------------------------");
 
