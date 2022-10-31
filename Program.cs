@@ -112,7 +112,6 @@ namespace Exercise2
             myList.read();
             myList.QuickSort(0, myList.getSize() - 1);
             myList.display();
-            Console.WriteLine("\n\nPress Enter to Exit");
             Console.Read();
         }
     }
