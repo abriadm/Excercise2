@@ -8,7 +8,7 @@ namespace Exercise2
 {
     class Program
     {
-        private int[] arr = new int[37];
+        private int[] Giveon = new int[37];
         private int cmp_count = 0;
         private int mov_count = 0;
         private int n;
@@ -29,11 +29,12 @@ namespace Exercise2
             Console.WriteLine("Enter Array Elements");
             Console.WriteLine("=========================");
 
+
             for (int i = 0; i < n; i++)
             {
                 Console.Write("<" + (i + 1) + ">");
                 string s = Console.ReadLine();
-                arr[i] = Int32.Parse(s);
+                Giveon[i] = Int32.Parse(s);
             }
         }
 
@@ -41,11 +42,11 @@ namespace Exercise2
         {
             int temp;
 
-            temp = arr[x];
-            arr[x] = arr[y];
-            arr[y] = temp;
+            temp = Giveon[x];
+            Giveon[x] = Giveon[y];
+            Giveon[y] = temp;
         }
-        public void q_sort(int low, int high)
+        public void QuickSort(int low, int high)
         {
             int pivot, i, j;
             if (low > high)
@@ -54,18 +55,18 @@ namespace Exercise2
             i = low + 1;
             j = high;
 
-            pivot = arr[low];
+            pivot = Giveon[low];
 
             while (i <= j)
             {
-                while ((arr[i] <= pivot) && (i <= high))
+                while ((Giveon[i] <= pivot) && (i <= high))
                 {
                     i++;
                     cmp_count++;
                 }
                 cmp_count++;
 
-                while ((arr[j] > pivot) && (j >= low))
+                while ((Giveon[j] > pivot) && (j >= low))
                 {
                     j--;
                     cmp_count++;
@@ -84,9 +85,9 @@ namespace Exercise2
                 swap(j, low);
                 mov_count++;
             }
-            q_sort(low, j - 1);
+            QuickSort(low, j - 1);
 
-            q_sort(j + 1, high);
+            QuickSort(j + 1, high);
         }
         void display()
         {
@@ -96,7 +97,7 @@ namespace Exercise2
 
             for (int j = 0; j < n; j++)
             {
-                Console.WriteLine(arr[j]);
+                Console.WriteLine(Giveon[j]);
             }
             Console.WriteLine("\n Number of comparisons : " + cmp_count);
             Console.WriteLine("\n Number of data movements : " + mov_count);
@@ -109,7 +110,7 @@ namespace Exercise2
         {
             Program myList = new Program();
             myList.read();
-            myList.q_sort(0, myList.getSize() - 1);
+            myList.QuickSort(0, myList.getSize() - 1);
             myList.display();
             Console.WriteLine("\n\nPress Enter to Exit");
             Console.Read();
