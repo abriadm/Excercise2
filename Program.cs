@@ -11,8 +11,6 @@ namespace Exercise2
         private int[] arr = new int[37];
         private int cmp_count = 0;
         private int mov_count = 0;
-
-        //number of elements in array
         private int n;
 
         void read()
@@ -22,7 +20,7 @@ namespace Exercise2
                 Console.Write("Enter the number of elements in the array : ");
                 string s = Console.ReadLine();
                 n = Int32.Parse(s);
-                if (n <= 20)
+                if (n <= 37)
                     break;
                 else
                     Console.WriteLine("\n array can have maximum 20 elements \n");
@@ -31,7 +29,6 @@ namespace Exercise2
             Console.WriteLine("Enter Array Elements");
             Console.WriteLine("=========================");
 
-            //get array elements
             for (int i = 0; i < n; i++)
             {
                 Console.Write("<" + (i + 1) + ">");
@@ -40,7 +37,6 @@ namespace Exercise2
             }
         }
 
-        //swap the elements at index x with the element at index y
         void swap(int x, int y)
         {
             int temp;
@@ -55,10 +51,6 @@ namespace Exercise2
             if (low > high)
                 return;
 
-            //partition the list into two parts:
-            //one containing elements lets that or equal to pivot
-            //outer conntainning elements greather than pivot
-
             i = low + 1;
             j = high;
 
@@ -66,7 +58,6 @@ namespace Exercise2
 
             while (i <= j)
             {
-                //seearch for an elements greather than pivot
                 while ((arr[i] <= pivot) && (i <= high))
                 {
                     i++;
@@ -74,7 +65,6 @@ namespace Exercise2
                 }
                 cmp_count++;
 
-                //search for an element less than or equal to pivot
                 while ((arr[j] > pivot) && (j >= low))
                 {
                     j--;
@@ -82,25 +72,20 @@ namespace Exercise2
                 }
                 cmp_count++;
 
-                if (i < j) // if the greater element is on the left of the element
+                if (i < j) 
                 {
-                    // swap the element at index 1 with the element at index j
                     swap(i, j);
                     mov_count++;
                 }
             }
-            // j now contains the index of the last element in the sorted list
 
             if (low < j)
             {
-                //move the pivot to its correct position in the list 
                 swap(j, low);
                 mov_count++;
             }
-            //sort the list on the right of pivot using quick sort
             q_sort(low, j - 1);
 
-            //sort the list on the right of pivot using quick sort
             q_sort(j + 1, high);
         }
         void display()
@@ -122,16 +107,10 @@ namespace Exercise2
         }
         static void Main(string[] args)
         {
-            //Decaring the object of the class
             Program myList = new Program();
-            //Accept array elements
             myList.read();
-            //Calling the sorting function
-            //first call to quick sort algorithm
             myList.q_sort(0, myList.getSize() - 1);
-            //Display sorted array
             myList.display();
-            // to exit from the console 
             Console.WriteLine("\n\nPress Enter to Exit");
             Console.Read();
         }
