@@ -48,16 +48,16 @@ namespace Exercise2
         }
         public void QuickSort(int low, int high)
         {
-            int pivot, i, j;
+            int pivot, i, AA;
             if (low > high)
                 return;
 
             i = low + 1;
-            j = high;
+            AA = high;
 
             pivot = Giveon[low];
 
-            while (i <= j)
+            while (i <= AA)
             {
                 while ((Giveon[i] <= pivot) && (i <= high))
                 {
@@ -66,28 +66,28 @@ namespace Exercise2
                 }
                 cmp_count++;
 
-                while ((Giveon[j] > pivot) && (j >= low))
+                while ((Giveon[AA] > pivot) && (AA >= low))
                 {
-                    j--;
+                    AA--;
                     cmp_count++;
                 }
                 cmp_count++;
 
-                if (i < j) 
+                if (i < AA) 
                 {
-                    swap(i, j);
+                    swap(i, AA);
                     mov_count++;
                 }
             }
 
-            if (low < j)
+            if (low < AA)
             {
-                swap(j, low);
+                swap(AA, low);
                 mov_count++;
             }
-            QuickSort(low, j - 1);
+            QuickSort(low, AA - 1);
 
-            QuickSort(j + 1, high);
+            QuickSort(AA + 1, high);
         }
         void display()
         {
